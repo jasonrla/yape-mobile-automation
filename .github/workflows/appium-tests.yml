@@ -44,7 +44,7 @@ jobs:
       - name: Set Android environment variables
         run: |
           echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
-          echo "$HOME/android-sdk/tools/bin:$PATH" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/tools/bin" >> $GITHUB_PATH
 
       - name: Create and start Android emulator
         run: |
