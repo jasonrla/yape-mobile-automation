@@ -35,10 +35,14 @@ jobs:
       - name: Install Appium
         run: npm install -g appium
 
-      - name: Install Android SDK
+      - name: Download Android SDK
+        run: wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+
+      - name: Unzip Android SDK
+        run: unzip sdk-tools-linux-4333796.zip -d $HOME/android-sdk
+
+      - name: Set Android environment variables
         run: |
-          wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-          unzip sdk-tools-linux-4333796.zip -d $HOME/android-sdk
           echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
           echo "$HOME/android-sdk/tools/bin:$PATH" >> $GITHUB_ENV
 
