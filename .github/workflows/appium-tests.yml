@@ -31,7 +31,7 @@ jobs:
         run: mv booking-com-32-9.apk src/test/resources/apps/booking-com-32-9.apk
 
       - name: Set up Maven
-        uses: actions/setup-maven@v2
+        uses: apache/maven-action@master
         with:
           maven-version: '3.9.6'
 
