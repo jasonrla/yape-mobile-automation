@@ -27,6 +27,28 @@ jobs:
       - name: Pull LFS files
         run: git lfs pull
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Appium
+        run: npm install -g appium
+
+      - name: Install Android SDK
+        run: |
+          wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+          unzip sdk-tools-linux-4333796.zip -d $HOME/android-sdk
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/tools/bin:$PATH" >> $GITHUB_ENV
+
+      - name: Create and start Android emulator
+        run: |
+          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-34;google_apis;x86"
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n pixel_3a -k "system-images;android-34;google_apis;x86"
+          $ANDROID_HOME/emulator/emulator -avd pixel_3a -no-window &
+          adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'
+
       - name: Set up Maven
         run: |
           wget https://downloads.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
