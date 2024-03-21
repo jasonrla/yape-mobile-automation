@@ -29,3 +29,7 @@ Para ejecutar las pruebas, sigue estos pasos:
 1. Asegúrate de que tu emulador de Android o dispositivo Android real está conectado y en funcionamiento.
 
 2. Ejecuta las pruebas usando `mvn test`.
+
+## Demostración
+
+Para ver una demostración de cómo se ejecutan las pruebas, puedes ver el siguiente video: [Enlace al video](https://drive.google.com/file/d/1kqlchtSO2kH5ginwrF34N-BZaN5ns57d/view?usp=sharing).
