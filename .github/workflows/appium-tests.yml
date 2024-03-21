@@ -27,9 +27,6 @@ jobs:
       - name: Pull LFS files
         run: git lfs pull
 
-      - name: Move APK to correct location
-        run: mv booking-com-32-9.apk src/test/resources/apps/booking-com-32-9.apk
-
       - name: Set up Maven
         run: |
           wget https://downloads.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
