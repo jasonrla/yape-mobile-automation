@@ -30,7 +30,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '21.6.2'
 
       - name: Install Appium
         run: npm install -g appium
@@ -47,7 +47,7 @@ jobs:
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-34;google_apis;x86"
           echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n pixel_3a -k "system-images;android-34;google_apis;x86"
           $ANDROID_HOME/emulator/emulator -avd pixel_3a -no-window &
-          adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done; input keyevent 82'
+          adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 10; done; input keyevent 82'
 
       - name: Set up Maven
         run: |
