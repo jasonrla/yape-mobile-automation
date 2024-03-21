@@ -48,8 +48,8 @@ jobs:
 
       - name: Create and start Android emulator
         run: |
-          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-34;google_apis;x86"
-          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n pixel_3a -k "system-images;android-34;google_apis;x86"
+          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-30;google_apis;x86"
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n pixel_3a -k "system-images;android-30;google_apis;x86"
           $ANDROID_HOME/emulator/emulator -avd pixel_3a -no-window &
           adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 10; done; input keyevent 82'
 
