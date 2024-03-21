@@ -1,0 +1,39 @@
+name: Appium Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Install Git LFS
+        run: sudo apt-get install git-lfs
+
+      - name: Pull LFS files
+        run: git lfs pull
+
+      - name: Move APK to correct location
+        run: mv booking-com-32-9.apk src/test/resources/apps/booking-com-32-9.apk
+
+      - name: Set up Maven
+        uses: actions/setup-maven@v2
+        with:
+          maven-version: '3.9.6'
+
+      - name: Run tests
+        run: mvn test
