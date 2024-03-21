@@ -1,0 +1,31 @@
+{
+    "default": {
+        "numDays": 2,
+        "numRooms": 1,
+        "numAdults": 2,
+        "numChild": 0
+    },
+    "user": {
+        "firstName": "Jason",
+        "lastName": "Lopez",
+        "email": "jasonrla@gmail.com",
+        "address": "Testing ave",
+        "zipCode": "15048",
+        "city": "Lima",
+        "country": "Peru",
+        "phoneNumber": "987987987",
+        "cardNumber": "4545 9899 2222 1111",
+        "expirationDate": "12/30"
+    },
+    "reservation": {
+        "startDate": "07 May 2024",
+        "endDate": "14 May 2024",
+        "destination": "Cusco",
+        "numChild": 1,
+        "ageChildren": [5],
+        "numAdults": 2,
+        "numRooms": 1,
+        "itemNumber": 2,
+        "purpose": "Leisure"
+    }
+}

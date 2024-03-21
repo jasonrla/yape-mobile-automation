@@ -1,0 +1,8 @@
+{
+    "platformName": "Android",
+    "platformVersion": "14",
+    "deviceName": "AutomationTesting",
+    "automationName": "uiautomator2",
+    "app": "/Users/jasonrla/Documents/Projects/yape/src/test/java/resources/apps/booking-com-32-9.apk",
+    "serverUrl": "http://localhost:4723/wd/hub"
+}
