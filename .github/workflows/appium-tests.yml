@@ -48,6 +48,9 @@ jobs:
           echo "$HOME/android-sdk/tools/bin" >> $GITHUB_PATH
           echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
 
+      - name: Install platform-tools
+        run: echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools"
+
       - name: Create repositories.cfg
         run: mkdir -p $HOME/.android && touch $HOME/.android/repositories.cfg
 
