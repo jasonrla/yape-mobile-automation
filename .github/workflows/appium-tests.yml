@@ -46,6 +46,9 @@ jobs:
           echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
           echo "$HOME/android-sdk/tools/bin" >> $GITHUB_PATH
 
+      - name: Accept Android SDK licenses
+        run: yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+
       - name: Create and start Android emulator
         run: |
           echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "system-images;android-30;google_apis;x86"
