@@ -31,9 +31,11 @@ jobs:
         run: mv booking-com-32-9.apk src/test/resources/apps/booking-com-32-9.apk
 
       - name: Set up Maven
-        uses: apache/maven-action@master
-        with:
-          maven-version: '3.9.6'
+        run: |
+          wget https://downloads.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+          tar xzvf apache-maven-3.9.6-bin.tar.gz
+          echo "M2_HOME=$HOME/apache-maven-3.9.6" >> $GITHUB_ENV
+          echo "PATH=$HOME/apache-maven-3.9.6/bin:$PATH" >> $GITHUB_ENV
 
       - name: Run tests
         run: mvn test
